@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const app = express()
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 3001
 
 // midleware
 app.use(cors())
@@ -18,11 +18,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connection = mongoose.connection
 
 connection.once('open', () => {
-    console.log("MongoDB database connection established successfully")
-})
+    console.info("MongoDB database connection established successfully")
+});
 
-app.use('/', require('./routes'))
+app.use('/', require('./routes'));
 
 app.listen(port, () => {
-    console.log(`Server is running on port : ${port}`)
+    console.info(`Server is running on port : ${port}`);
 })

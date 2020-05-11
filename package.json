@@ -22,7 +22,7 @@
     "start": "cd src/client && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "server": "nodemon --exec babel-node src/server/server.js",
+    "server": "nodemon src/server/server.js",
     "client": "webpack-dev-server --mode development --open --hot",
     "client-prod": "webpack",
     "dev": "concurrently \"npm run server\" \"npm run client\"", 

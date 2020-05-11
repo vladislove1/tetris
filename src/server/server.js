@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 const mongoose = require('mongoose')
 
 require('dotenv').config()
@@ -20,7 +21,7 @@ const connection = mongoose.connection
 connection.once('open', () => {
     console.info("MongoDB database connection established successfully")
 });
-
+app.use(express.static(path.join(__dirname, '../../dist')));
 app.use('/', require('./routes'));
 
 app.listen(port, () => {

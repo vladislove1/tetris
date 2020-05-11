@@ -1,0 +1,10 @@
+{
+    "type": "sftp",
+    "host": "185.179.190.167",
+    "username": "vlad",
+    "password": "csgo",
+    "port": 2882,
+    "remotePath": "/home/vlad/www/tetris",
+    "uploadOnSave": true,
+    "uploadConfigFile": false
+}

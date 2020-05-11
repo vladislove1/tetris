@@ -24,7 +24,9 @@
     "test": "react-scripts test",
     "server": "nodemon --exec babel-node src/server/server.js",
     "client": "webpack-dev-server --mode development --open --hot",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client-prod": "webpack",
+    "dev": "concurrently \"npm run server\" \"npm run client\"", 
+    "prod": "concurrently \"npm run server\" \"npm run client-prod\""
   },
   "eslintConfig": {
     "extends": "react-app"

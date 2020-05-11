@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import StartView from './Components/StartView/StartView'
+import StartView from './components/StartView/StartView'
 
 function App() {
   return (

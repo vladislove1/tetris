@@ -1,6 +1,6 @@
 import { GET_SOMETHING } from './types';
 
-export const get_something = () => {
+export const getSomething = () => {
     return {
         type: GET_SOMETHING,
     }

@@ -16,7 +16,9 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "cd src/client && react-scripts start",
@@ -25,7 +27,7 @@
     "server": "nodemon src/server/server.js",
     "client": "webpack-dev-server --mode development --open --hot",
     "client-prod": "webpack",
-    "dev": "concurrently \"npm run server\" \"npm run client\"", 
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "prod": "concurrently \"npm run server\" \"npm run client-prod\""
   },
   "eslintConfig": {

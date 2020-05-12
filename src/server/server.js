@@ -21,7 +21,9 @@ const connection = mongoose.connection
 connection.once('open', () => {
     console.info("MongoDB database connection established successfully")
 });
+
 app.use(express.static(path.join(__dirname, '../../dist')));
+
 app.use('/', require('./routes'));
 
 app.listen(port, () => {

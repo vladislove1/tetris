@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './sp.css';
+import './specifications.scss';
 import App from './App';
 
 const app = (<App />);

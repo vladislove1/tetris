@@ -1,36 +1,52 @@
 import React from 'react'
 import './ChatMenu.scss';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
+import {
+  sendMessage,
+  setTextMessage,
+} from '../../store/actions/actions';
 
 const ChatMenu = props => {
   return (
     <div className="chatMenu">
       <div className="messages">
-        <div className="message">
-        <span>Валик: </span>
-          <p>Мое сообщение</p>
-        </div>
-
-        <div className="message">
-          <span>Валик: </span>
-          <p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
-        </div>
-
-        <div className="message">
-          <span>Валик: </span>
-          <p>Мое сообщение</p>
-        </div>
+        {
+          props.messages.map((elem, index) => {
+            return (
+              <div key={index} className="message">
+                <span>{elem.nickname}: </span>
+                <p>{elem.text}</p>
+              </div>
+            )
+          })
+        }
       </div>
 
       <div className="sendMessage">
-        <input type="text" placeholder="Введите сообщение"/>
-        <button>Отправить</button>
+        <input type="text" placeholder="Введите сообщение" onChange={ e => props.setTextMessage(e.target.value) } />
+        <button onClick={ () => props.sendMessage() }>Отправить</button>
       </div>
     </div>
   );
 };
 
+function mapStateToProps(state) {
+  const {
+    messages,
+  } = state.chat;
 
-export default ChatMenu;
+  return {
+    messages,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    sendMessage: () => dispatch(sendMessage()),
+    setTextMessage: text => dispatch(setTextMessage(text)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatMenu);

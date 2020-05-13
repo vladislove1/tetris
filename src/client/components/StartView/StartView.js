@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './StartView.css';
+import './StartView.scss';
 
 import { connect } from 'react-redux';
 import {getSomething} from '../../actions/itemActions'
 
 class StartView extends Component {
     render () {
-        return ( 
+        return (
             <div>{this.props.item.text}</div>
         );
     }

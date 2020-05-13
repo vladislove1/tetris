@@ -5,7 +5,7 @@ import {
   Switch,
 } from 'react-router-dom'
 
-import Chat from './components/Chat/Chat';
+import Chat from './containers/Chat/Chat';
 // import StartView from './components/StartView/StartView';
 
 function App() {

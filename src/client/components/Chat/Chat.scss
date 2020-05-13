@@ -1,0 +1,23 @@
+div.nickname {
+  margin: 5px;
+
+  input[type="text"] {
+    padding: 5px;
+  }
+
+  button {
+    height: 28px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    outline: none;
+
+    &:hover {
+      border: 1px solid black;
+      background: white;
+      color: black;
+    }
+  }
+}

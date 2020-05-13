@@ -1,31 +1,10 @@
-const express = require('express')
-const cors = require('cors')
-const path = require('path')
-const mongoose = require('mongoose')
+const app = require('./middleware');
+const log = require('./middleware/winston')(module);
+const config = require('./config');
 
-require('dotenv').config()
-
-const app = express()
-const port = process.env.PORT || 3001
-
-// midleware
-app.use(cors())
-app.use(express.json())
-
-// database
-const uri = process.env.ATLAS_URI
-
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
-const connection = mongoose.connection
-
-connection.once('open', () => {
-    console.info("MongoDB database connection established successfully")
+const server = app.listen(config.app.port, config.app.host, (err) => {
+  if (err) throw new Error(err);
+  log.info(`Server running at ${config.app.url}:${config.app.port}`);
 });
 
-app.use(express.static(path.join(__dirname, '../../dist')));
-
-app.use('/', require('./routes'));
-
-app.listen(port, () => {
-    console.info(`Server is running on port : ${port}`);
-})
+// require('./middleware/websockets')(server);

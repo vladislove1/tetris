@@ -6,14 +6,28 @@ import { connect } from 'react-redux';
 
 class Chat extends Component {
     render () {
-      return (<div>Chat</div>)
+      const {
+        userNickname,
+      } = this.props;
+
+      let appendStr;
+
+      if (!userNickname) {
+        appendStr = (
+          <div>
+            <input type="text" placeholder="Введите nickname"/>
+            <button>Продолжить</button>
+          </div>
+        )
+      } else appendStr = <p>Твой ник: {this.props.userNickname}</p>
+
+      return (<div className="nickname">{appendStr}</div>);
     }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
-    // quiz: state.create.quiz
+    userNickname: state.userNickname,
   }
 }
 

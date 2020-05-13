@@ -1,1 +1,1 @@
-export const CHAT_NAME = 'CHAT_NAME'
+export const USER_NICKNAME = 'USER_NICKNAME'

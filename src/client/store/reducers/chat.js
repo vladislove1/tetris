@@ -1,17 +1,16 @@
 import {
-  CHAT_NAME,
+  USER_NICKNAME,
 } from '../actions/actionTypes';
 
 const initState = {
-  chatName: '',
+  userNickname: 'undefined',
 };
 
 export default function chatReducer(state = initState, action) {
   switch (action.type) {
-    case CHAT_NAME:
+    case USER_NICKNAME:
       return {
         ...state,
-        chatName: 'New name',
       }
 
     default: return state;

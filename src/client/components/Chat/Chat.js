@@ -6,18 +6,22 @@ import { connect } from 'react-redux';
 
 class Chat extends Component {
     render () {
-      <div>Chat</div>
+      return (<div>Chat</div>)
     }
 }
-const mapStateToProps = (state) => (
-  {
-    // item: state.item,
+
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    // quiz: state.create.quiz
   }
-);
-
-const mapDispatchToProps = () => {
-    return {
-    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+function mapDispatchToProps(dispatch) {
+  return {
+    // createQuizQuestion: item => dispatch(createQuizQuestion(item)),
+    // finishCreateQuiz: () => dispatch(finishCreateQuiz())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

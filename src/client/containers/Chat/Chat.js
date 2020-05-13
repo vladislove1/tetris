@@ -3,15 +3,20 @@ import './Chat.scss';
 
 import { connect } from 'react-redux';
 
+import ChatMenu from '../../components/ChatMenu/ChatMenu';
 import ChatLogin from '../../components/ChatLogin/ChatLogin';
 
 class Chat extends Component {
   render () {
     return (
-      <ChatLogin
-        isLogin={this.props.isLogin}
-        userNickname={this.props.userNickname}
-      />
+      <div>
+        <ChatLogin
+          isLogin={this.props.isLogin}
+          userNickname={this.props.userNickname}
+        />
+
+        { this.props.isLogin ? <ChatMenu/> : false }
+      </div>
     )
   }
 }

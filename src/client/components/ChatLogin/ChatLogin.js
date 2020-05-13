@@ -18,9 +18,13 @@ const ChatLogin = props => {
         <button onClick={() => props.enterChat()}>Продолжить</button>
       </div>
     )
-  } else appendStr = <p>Добро пожаловать, {props.userNickname}</p>
+  } else {
+    appendStr = (
+      <p>Добро пожаловать, <span>{props.userNickname}</span></p>
+    )
+  }
 
-  return (<div className="nickname">{appendStr}</div>);
+  return (<div className="login">{appendStr}</div>);
 };
 
 

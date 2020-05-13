@@ -46,6 +46,7 @@ module.exports = {
     ],
     devServer: {
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        quiet: true
     }
 };

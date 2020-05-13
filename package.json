@@ -15,16 +15,20 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "cd src/client && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "server": "nodemon --exec babel-node src/server/server.js",
+    "server": "nodemon src/server/server.js",
     "client": "webpack-dev-server --mode development --open --hot",
-    "dev": "concurrently \"npm run client\""
+    "client-prod": "webpack",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "prod": "concurrently \"npm run server\" \"npm run client-prod\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,10 +48,10 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",

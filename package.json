@@ -17,8 +17,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "cd src/client && react-scripts start",
@@ -58,6 +57,7 @@
     "json-loader": "^0.5.7",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.3",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",

@@ -7,8 +7,8 @@ import {
 } from '../actions/actionTypes';
 
 const initState = {
-  isLogin: true,
-  userNickname: 'Arcdie',
+  isLogin: false,
+  userNickname: null,
 
   messages: [],
   textMessage: null,

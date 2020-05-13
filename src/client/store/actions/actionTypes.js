@@ -1,1 +1,2 @@
-export const USER_NICKNAME = 'USER_NICKNAME'
+export const ENTER_CHAT = 'ENTER_CHAT'
+export const SET_USER_NICKNAME = 'SET_USER_NICKNAME'

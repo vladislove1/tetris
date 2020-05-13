@@ -4,55 +4,48 @@ import './Chat.scss';
 import { connect } from 'react-redux';
 
 import {
+  enterChat,
   setNickname,
 } from '../../store/actions/actions';
 
 class Chat extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      enterNickname: '',
-    };
-  }
-
-  changeNickname(event) {
-    this.setState({
-      enterNickname: event.target.value,
-    });
-
-    console.log(this.state);
-  }
-
   render () {
     const {
+      isLogin,
       userNickname,
     } = this.props;
 
     let appendStr;
 
-    if (!userNickname) {
+    if (!isLogin) {
       appendStr = (
         <div>
-          <input type="text" placeholder="Введите nickname" onChange={event => this.changeNickname(event) }/>
-          <button onClick={() => this.props.onChangeNickname(this.state.enterNickname)}>Продолжить</button>
+          <input type="text" placeholder="Введите nickname" onChange={e => this.props.setNickname(e.target.value) }/>
+          <button onClick={() => this.props.enterChat()}>Продолжить</button>
         </div>
       )
-    } else appendStr = <p>Твой ник: {this.props.userNickname}</p>
+    } else appendStr = <p>Добро пожаловать, {userNickname}</p>
 
     return (<div className="nickname">{appendStr}</div>);
   }
 }
 
 function mapStateToProps(state) {
+  const {
+    isLogin,
+    userNickname,
+  } = state.chat;
+
   return {
-    userNickname: state.chat.userNickname,
-  }
+    isLogin,
+    userNickname,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChangeNickname: nickname => dispatch(setNickname(nickname)),
+    enterChat: () => dispatch(enterChat()),
+    setNickname: nickname => dispatch(setNickname(nickname)),
   }
 }
 

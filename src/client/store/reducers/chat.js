@@ -3,14 +3,14 @@ import {
 } from '../actions/actionTypes';
 
 const initState = {
-  userNickname: 'undefined',
+  userNickname: null,
 };
 
 export default function chatReducer(state = initState, action) {
   switch (action.type) {
     case USER_NICKNAME:
       return {
-        ...state,
+        userNickname: action.newNickname,
       }
 
     default: return state;

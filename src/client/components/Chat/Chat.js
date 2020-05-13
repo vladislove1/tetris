@@ -2,39 +2,57 @@ import React, { Component } from 'react';
 import './Chat.scss';
 
 import { connect } from 'react-redux';
-// import {getSomething} from '../../actions/itemActions'
+
+import {
+  setNickname,
+} from '../../store/actions/actions';
 
 class Chat extends Component {
-    render () {
-      const {
-        userNickname,
-      } = this.props;
+  constructor(props) {
+    super(props);
 
-      let appendStr;
+    this.state = {
+      enterNickname: '',
+    };
+  }
 
-      if (!userNickname) {
-        appendStr = (
-          <div>
-            <input type="text" placeholder="Введите nickname"/>
-            <button>Продолжить</button>
-          </div>
-        )
-      } else appendStr = <p>Твой ник: {this.props.userNickname}</p>
+  changeNickname(event) {
+    this.setState({
+      enterNickname: event.target.value,
+    });
 
-      return (<div className="nickname">{appendStr}</div>);
-    }
+    console.log(this.state);
+  }
+
+  render () {
+    const {
+      userNickname,
+    } = this.props;
+
+    let appendStr;
+
+    if (!userNickname) {
+      appendStr = (
+        <div>
+          <input type="text" placeholder="Введите nickname" onChange={event => this.changeNickname(event) }/>
+          <button onClick={() => this.props.onChangeNickname(this.state.enterNickname)}>Продолжить</button>
+        </div>
+      )
+    } else appendStr = <p>Твой ник: {this.props.userNickname}</p>
+
+    return (<div className="nickname">{appendStr}</div>);
+  }
 }
 
 function mapStateToProps(state) {
   return {
-    userNickname: state.userNickname,
+    userNickname: state.chat.userNickname,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    // createQuizQuestion: item => dispatch(createQuizQuestion(item)),
-    // finishCreateQuiz: () => dispatch(finishCreateQuiz())
+    onChangeNickname: nickname => dispatch(setNickname(nickname)),
   }
 }
 

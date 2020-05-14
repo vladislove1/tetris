@@ -4,9 +4,9 @@ import './ChatMenu.scss';
 import { connect } from 'react-redux';
 
 import {
-  sendMessage,
+  addNewMessage,
   setTextMessage,
-} from '../../store/actions/actions';
+} from '../../store/actions/chat';
 
 const ChatMenu = props => {
   return (
@@ -16,8 +16,8 @@ const ChatMenu = props => {
           props.messages.map((elem, index) => {
             return (
               <div key={index} className="message">
-                <span>{elem.nickname}: </span>
-                <p>{elem.text}</p>
+                <span>{elem.userNickname}: </span>
+                <p>{elem.textMessage}</p>
               </div>
             )
           })
@@ -26,25 +26,21 @@ const ChatMenu = props => {
 
       <div className="sendMessage">
         <input type="text" placeholder="Введите сообщение" onChange={ e => props.setTextMessage(e.target.value) } />
-        <button onClick={ () => props.sendMessage() }>Отправить</button>
+        <button onClick={ () => props.addNewMessage() }>Отправить</button>
       </div>
     </div>
   );
 };
 
 function mapStateToProps(state) {
-  const {
-    messages,
-  } = state.chat;
-
   return {
-    messages,
+    messages: state.chat.messages,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    sendMessage: () => dispatch(sendMessage()),
+    addNewMessage: () => dispatch(addNewMessage()),
     setTextMessage: text => dispatch(setTextMessage(text)),
   }
 }

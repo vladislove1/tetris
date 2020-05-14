@@ -1,5 +1,5 @@
-export const ENTER_CHAT = 'ENTER_CHAT';
+export const ENTER_TO_CHAT = 'ENTER_TO_CHAT';
 export const SET_USER_NICKNAME = 'SET_USER_NICKNAME';
 
-export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const ADD_MESSAGES = 'ADD_MESSAGES';
 export const SET_TEXT_MESSAGE = 'SET_TEXT_MESSAGE';

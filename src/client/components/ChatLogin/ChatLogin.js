@@ -4,9 +4,9 @@ import './ChatLogin.scss';
 import { connect } from 'react-redux';
 
 import {
-  enterChat,
+  enterToChat,
   setNickname,
-} from '../../store/actions/actions';
+} from '../../store/actions/chat';
 
 const ChatLogin = props => {
   let appendStr;
@@ -15,7 +15,7 @@ const ChatLogin = props => {
     appendStr = (
       <div>
         <input type="text" placeholder="Введите nickname" onChange={e => props.setNickname(e.target.value) }/>
-        <button onClick={() => props.enterChat()}>Продолжить</button>
+        <button onClick={() => props.enterToChat()}>Продолжить</button>
       </div>
     )
   } else {
@@ -30,7 +30,7 @@ const ChatLogin = props => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    enterChat: () => dispatch(enterChat()),
+    enterToChat: () => dispatch(enterToChat()),
     setNickname: nickname => dispatch(setNickname(nickname)),
   }
 }

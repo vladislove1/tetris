@@ -3,6 +3,7 @@ import React from 'react';
 import {
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom'
 
 import Chat from './containers/Chat/Chat';
@@ -11,7 +12,8 @@ import Chat from './containers/Chat/Chat';
 function App() {
   return (
     <Switch>
-      <Route path="/chat" component={Chat} />
+      <Route exact path="/chat" component={Chat} />
+      <Redirect to="/" />
     </Switch>
   );
 }

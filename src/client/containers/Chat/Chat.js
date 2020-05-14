@@ -6,7 +6,15 @@ import { connect } from 'react-redux';
 import ChatMenu from '../../components/ChatMenu/ChatMenu';
 import ChatLogin from '../../components/ChatLogin/ChatLogin';
 
+import {
+  getMessages,
+} from '../../store/actions/chat';
+
 class Chat extends Component {
+  componentDidMount() {
+    this.props.getMessages();
+  }
+
   render () {
     return (
       <div>
@@ -33,4 +41,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(Chat)
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getMessages: () => dispatch(getMessages()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

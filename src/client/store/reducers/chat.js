@@ -2,7 +2,7 @@ import {
   ENTER_CHAT,
   SET_USER_NICKNAME,
 
-  SEND_MESSAGE,
+  ADD_MESSAGES,
   SET_TEXT_MESSAGE,
 } from '../actions/actionTypes';
 
@@ -22,25 +22,26 @@ export default function chatReducer(state = initState, action) {
         userNickname: action.newNickname,
       }
 
+    case SET_TEXT_MESSAGE:
+      return {
+        ...state,
+        textMessage: action.text,
+      }
+
     case ENTER_CHAT:
       return {
         ...state,
         isLogin: true,
       }
 
-    case SEND_MESSAGE:
+    case ADD_MESSAGES:
       return {
         ...state,
-        messages: [...state.messages, {
-          text: state.textMessage,
-          nickname: state.userNickname,
-        }],
-      }
 
-    case SET_TEXT_MESSAGE:
-      return {
-        ...state,
-        textMessage: action.text,
+        messages: [
+          ...action.messages,
+          ...state.messages,
+        ],
       }
 
     default: return state;

@@ -1,2 +1,2 @@
-exports.user = require('./user');
 exports.web = require('./web');
+exports.chat = require('./chat');

@@ -45,7 +45,10 @@ const User = new Schema({
       unique: true,
   },
 
-  name: String,
+  name: {
+    type: String,
+    unique: true,
+  },
   password: String,
   maxScore: Number,
 

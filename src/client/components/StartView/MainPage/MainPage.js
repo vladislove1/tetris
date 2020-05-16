@@ -1,17 +1,14 @@
 import React from 'react';
-import './StartView.scss';
 
 import { connect } from 'react-redux';
-import Auth from './Auth/Auth';
-import MainPage from './MainPage/MainPage';
 // import {getSomething} from '../../actions/itemActions'
 
-const StartView = (props) => {
+const MainPage = (props) => {
     console.log(props);
     return (
         <div>
-            { props.init.isLogin ? <MainPage/> : <Auth/>}
-            <h1>{props.init.text}</h1>
+            
+            <h1>mainPage</h1>
         </div>
     );
 
@@ -29,4 +26,4 @@ const mapDispatchToProps = () => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(StartView);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

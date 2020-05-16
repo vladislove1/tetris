@@ -1,2 +1,17 @@
 body {
+    padding: 24px;
+}
+div {
+    color: #fff;
+}
+.auth {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 24px;
+    margin: 0 auto;
+    input {
+        margin-bottom: 12px;
+        padding: 8px;
+    }
 }

@@ -51,9 +51,13 @@ module.exports = {
             favicon: './public/favicon.ico',
         })
     ],
+    optimization: {
+      minimize: false,
+    },
+    stats: 'errors-only',
     devServer: {
         hot: true,
         historyApiFallback: true,
-        quiet: true
+        quiet: true,
     }
 };

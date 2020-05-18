@@ -1,7 +1,15 @@
 const path = require('path');
 
+let pathEnv = 'config/envs/';
+
+switch (process.env.HOME) {
+  case '/home/sgmteam': pathEnv = '.env'; break;
+
+  default: { pathEnv += 'localhost.env'; break; }
+}
+
 require('dotenv').config({
-  path: path.join(__dirname, '../../../.env'),
+  path: path.join(__dirname, `../${pathEnv}`),
 });
 
 const morgan = require('./morgan');

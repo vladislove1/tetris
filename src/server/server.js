@@ -6,6 +6,7 @@ const app = require('./middleware');
 const log = require('./middleware/winston')(module);
 const config = require('./config');
 
+console.log(config.app.environment);
 if (config.app.environment === 'localhost') {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 

@@ -11,7 +11,7 @@
 .push.sh
 .DS_Store
 Thumbs.db
-
+logs/
 # dependencies
 /node_modules
 /.pnp
@@ -34,7 +34,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/.env
+.env
 
 /atom-sftp-sync.json
 /atom-sftp-sync-dev.json

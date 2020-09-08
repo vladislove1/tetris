@@ -13,6 +13,8 @@ module.exports = {
     },
   },
 
+  jwtSecret: process.env.JWT_SECRET,
+
   redisConf: {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT,
